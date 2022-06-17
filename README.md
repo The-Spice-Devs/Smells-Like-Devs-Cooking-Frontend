@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Smells Like Devs Cooking
 
-## Getting Started
+## Meet The Spice Devs
 
-First, run the development server:
+___
+- Thomas Basham [GitHub](https://github.com/Thomas-Basham) [LinkedIn](https://www.linkedin.com/in/thomas-basham/)
+- Dwight Lindquist [GitHub](https://github.com/dlindqu3) [LinkedIn](https://www.linkedin.com/in/dwight-lindquist-a9a0b6b4/)
+- Ella Svete [GitHub](https://github.com/EllaSvete) [LinkedIn](https://www.linkedin.com/in/ellasvete/)
+- Michele Salazar [GitHub](https://github.com/MISalz) [LinkedIn](https://www.linkedin.com/in/michellesalazar010/)
+- Eden Brekke [GitHub](https://github.com/eden-brekke) [LinkedIn](https://www.linkedin.com/in/eden-brekke/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Project Description 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+___
+[Deployed Site]()
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Welcome to The Smells Like Devs Cooking Blog! Where we aim to share fun and creative recipes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Wireframes
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+___
+Home Page:
+![Home Page](./assets/HomePage.png)
+___
+Individual Post:
+![Individual Blog Post](./assets/OtherUserPage.png)
+___
+Profile Page:
+![Profile Page](./assets/ProfilePage.png)
+___
+About The Devs:
+![About the Devs Page](./assets/AboutTheDevs.png)
+___
+Additional User Potential Page:
+![OtherUsersPage](./assets/OtherUserPage.png)
 
-## Learn More
+___
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Jira Project Management
+- Next.JS
+- TailwindCSS
+- React
+- Django
+- ElephantSQL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Acknowledgements
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- JB Tellez
+- David Hecker
+- Justin Hammerly
+- Adam Owada
+- Aaron Imbrock
+- Joseph Streifel
+- Chloe Nott
