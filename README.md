@@ -12,7 +12,7 @@ ___
 ## Project Description 
 
 ___
-[Deployed Site]()
+[Deployed Site](https://smells-like-devs-cooking-frontend-rho.vercel.app/)
 
 Welcome to The Smells Like Devs Cooking Blog! Where we aim to share fun and creative recipes.
 
