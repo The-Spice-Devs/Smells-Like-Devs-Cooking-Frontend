@@ -20,18 +20,23 @@ Welcome to The Smells Like Devs Cooking Blog! Where we aim to share fun and crea
 
 ___
 Home Page:
+
 ![Home Page](./assets/HomePage.png)
 ___
 Individual Post:
+
 ![Individual Blog Post](./assets/OtherUserPage.png)
 ___
 Profile Page:
+
 ![Profile Page](./assets/ProfilePage.png)
 ___
 About The Devs:
+
 ![About the Devs Page](./assets/AboutTheDevs.png)
 ___
 Additional User Potential Page:
+
 ![OtherUsersPage](./assets/OtherUserPage.png)
 
 ___
