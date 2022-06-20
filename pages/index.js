@@ -1,12 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Main from '../components/Main';
+import LoginForm from '../components/LoginForm';
+import { useAuth } from '../contexts/auth'
 
 export default function Home() { 
+	
+	const { user, login, logout } = useAuth();
+
+	if (!user) return <LoginForm login={login} />
+
 	return ( 
-		<h1 className="text-3xl font-bold underline">
-			Hello world! 
-		</h1> 
+		<Main logout={logout} username={user.username}/>
 		) 
 	}
 
