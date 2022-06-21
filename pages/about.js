@@ -1,4 +1,4 @@
-export default function Home() {
+export default function About() {
   return (
     <>
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-4 text-center bg-violet-200 border-2 border-violet-400 rounded-lg text-md gap-x-8">
