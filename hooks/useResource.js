@@ -2,6 +2,7 @@ import axios from 'axios'
 import useSWR from 'swr'
 
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
+export const apiFaveUrl = process.env.NEXT_PUBLIC_FAVE_RESOURCE_URL;
 export const registerURL = process.env.NEXT_PUBLIC_RESOURCE_REGISTER_URL; 
 import { useAuth } from '../contexts/auth';
 
@@ -13,13 +14,13 @@ export default function useResource() {
 
     async function fetchResource(url) {
 
-        if (!tokens) {
-            return;
-        }
+        // if (!tokens) {
+        //     return;
+        // }
 
         try {
-            const response = await axios.get(url, config());
-
+            const response = await axios.get(url);
+            // , config() this goes into the line above within the get method
             return response.data;
 
         } catch (error) {
@@ -31,6 +32,16 @@ export default function useResource() {
 
         try {
             await axios.post(apiUrl, info, config());
+            mutate(); // mutate causes complete collection to be refetched
+        } catch (error) {
+            handleError(error);
+        }
+    }
+
+    async function createFavoriteResource(info) {
+
+        try {
+            await axios.post(apiFaveUrl, info, config());
             mutate(); // mutate causes complete collection to be refetched
         } catch (error) {
             handleError(error);
@@ -87,6 +98,7 @@ export default function useResource() {
         error,
         loading: tokens && !error && !data,
         createResource,
+        createFavoriteResource,
         deleteResource,
         updateResource,
         createUser,
