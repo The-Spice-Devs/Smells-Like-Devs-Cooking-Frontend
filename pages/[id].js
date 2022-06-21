@@ -6,15 +6,26 @@ import useResource from '../hooks/useResource'
 export default function BlogDetail() {
   const router = useRouter();
   const { user } = useAuth();
-  const { resources, error } = useResource();
+  const { resources, createFavoriteResource, error } = useResource();
   useEffect(() => {
-    if (error || !user) {
+    if (error) {
+      // || !user
       router.push('/')
     }
   })
   if (!resources) return <h2>Loading...</h2>
   const { id } = router.query;
   const resource = resources.find(item => item.id == id)
+
+  function saveFavorite(event){
+    event.preventDefault();
+    let fave = {
+      owner: user.id,
+      blogPostID: resource.id,
+    };
+    createFavoriteResource(fave);
+  }
+
   return (
     <>
       <h1 className="text-4xl py-4 font-bold border-2 border-violet-500 bg-violet-100 my-5 text-center">Recipe: {resource.title}</h1>
@@ -50,6 +61,7 @@ export default function BlogDetail() {
         <p className="italic">Created By: {resource.owner} </p>
         <p className="italic">Date Submitted: {resource.created_at}</p>
         <p className="italic">Updated At: {resource.updated_at}</p>
+        <button onClick={saveFavorite}>Favorite this Recipe! :)</button>
       </div>
       {/* <p>{JSON.stringify(resource)}</p> */}
     </>
