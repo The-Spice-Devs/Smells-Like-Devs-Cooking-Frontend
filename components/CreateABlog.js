@@ -7,8 +7,8 @@ export default function CreateBlogPage({createResource}){
     event.preventDefault();
     let newBlog = {
       title: event.target.title.value,
-      recipe_ingredients: event.target.recipe_ingredients.value,
-      recipe_directions: event.target.recipe_directions.value,
+      recipe_ingredients: createIngredientList(event),
+      recipe_directions: createDirectionList(event),
       recipe_image: event.target.recipe_image.value,
       difficulty: event.target.difficulty.value,
       recipe_intro: event.target.recipe_intro.value,
@@ -19,6 +19,18 @@ export default function CreateBlogPage({createResource}){
       updated_at: new Date(),
       owner: user.id,
     };
+
+    function createIngredientList(event){
+      let ingredients = event.target.recipe_ingredients.value.split(",");
+      for(let i = 0; i < ingredients.length; i++){
+        ingredients[i] = ingredients[i].replace(/^\s*/, "").replace(/\s*$/, "");
+      }
+      return ingredients
+    }
+    function createDirectionList(event){
+      let directions = event.target.recipe_directions.value.split(",");
+      return directions
+    }
     createResource(newBlog);
   }
 
@@ -37,10 +49,10 @@ export default function CreateBlogPage({createResource}){
     <input type="text" id="recipe_image" name="recipe_image" />
 
     <label htmlFor="recipe_ingredients" className="py-4 font-bold text-2xl">Recipe Ingredients</label>
-    <input type="text" id="recipe_ingredients" name="recipe_ingredients" />
+    <input id="recipe_ingredients" name="recipe_ingredients" />
 
     <label htmlFor="recipe_directions" className="py-4 font-bold text-2xl">Recipe Directions</label>
-    <input type="text" id="recipe_directions" name="recipe_directions" />
+    <input id="recipe_directions" name="recipe_directions" />
 
     <label htmlFor="meal_type" className="py-4 font-bold text-2xl">Meal Type</label>
     <input type="text" id="meal_type" name="meal_type" />
