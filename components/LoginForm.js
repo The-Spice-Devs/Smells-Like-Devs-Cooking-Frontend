@@ -8,8 +8,9 @@ export default function LoginForm({ login }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative justify-center w-full h-full max-w-screen-xl px-5 py-3 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-violet-200 border-violet-500"
+      className="justify-center w-full h-full max-w-screen-xl px-5 py-3 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-violet-200 border-violet-500 my-5"
     >
+      <h1 className="text-3xl py-4 font-bold"> Returning User? Sign In Here!</h1>
       <fieldset autoComplete="off" className="flex flex-col p-4">
         <label htmlFor="username" className="py-4 font-bold text-2xl">
           USER NAME
