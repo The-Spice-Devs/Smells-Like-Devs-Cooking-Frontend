@@ -21,12 +21,7 @@ export default function Main( {username} ) {
             <p>Author: {blog.owner} Date Created: {blog.created_at}</p>
             <p>Meal Type: {blog.meal_type}</p>
             <p>Level of Difficulty: {blog.difficulty}</p>
-            <p>Prep Time: {blog.prep_time}</p>
-            <p>Cook Time: {blog.cook_time}</p>
             <p>src={blog.recipe_images}</p>
-            <p>Instructions: {blog.recipe_intro}</p>
-            <p>Description: {blog.recipe_content}</p>
-            <p>Updated At: {blog.updated_at}</p>
             <p>Ratings Coming Soon!</p>
             <p>Dietary Tags Coming Soon!</p>
           </div>
