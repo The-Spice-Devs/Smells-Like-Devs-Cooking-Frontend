@@ -1,7 +1,13 @@
-export default function Home() { 
+import CreateABlog from '../components/CreateABlog';
+import useResource from '../hooks/useResource';
+
+
+export default function Create() { 
+	const { createResource } = useResource();
+
 	return ( 
-		<h1 className="text-3xl font-bold underline">
-			Ideally this is gonna link to a form :D 
-		</h1> 
+		<>
+		<CreateABlog createResource={createResource} />
+		</>
 		) 
 	}
