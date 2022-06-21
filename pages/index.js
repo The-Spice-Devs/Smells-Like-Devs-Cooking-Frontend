@@ -1,7 +1,7 @@
 import Main from '../components/Main';
 import LoginForm from '../components/LoginForm';
 import { useAuth } from '../contexts/auth'
-import CreateUserForm from './createUserFormPage';
+import CreateUserForm from '../components/CreateUserFormPage';
 
 export default function Home() { 
 	
@@ -9,8 +9,7 @@ export default function Home() {
 
 	if (!user) return (
 		<div>
-			{/* <LoginForm login={login} /> */}
-			<br></br>
+			<LoginForm login={login} />
 			<CreateUserForm />
 		</div>
 	)
