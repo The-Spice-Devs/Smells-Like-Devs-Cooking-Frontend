@@ -1,11 +1,10 @@
 import useResource from '../hooks/useResource';
 import { useAuth } from '../contexts/auth'
-// import Image from 'next/image';
 import Link from "next/link"
 
 export default function Main({ username, logout }) {
 
-  const { resources, createResource, deleteResource } = useResource();
+  const { resources } = useResource();
 
 
   if (!resources) return <h2>No Blog Posts Available, Try again later! :)</h2>
