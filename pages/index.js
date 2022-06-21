@@ -16,7 +16,7 @@ export default function Home() {
 
 	return ( 
 		<div>
-		<Main logout={logout} username={user.username}/>
+		<Main logout={logout} />
 		</div>
 		) 
 	}
