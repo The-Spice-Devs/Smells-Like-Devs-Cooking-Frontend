@@ -13,6 +13,8 @@ function MyApp({ Component, pageProps }) {
         <Link href="/about"><a>About the Cooks</a></Link>
         <Link href="/create"><a>Create a Blog Post</a></Link>
         <Link href="/owner"><a>Profile</a></Link>
+          <Link href="/LoginPage"><a>Login</a></Link>       
+        <Link href="/SignupPage"><a>Sign up</a></Link>
       </nav>
     </div>
   </header>

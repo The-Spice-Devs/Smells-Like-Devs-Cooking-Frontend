@@ -1,5 +1,6 @@
 import Main from '../components/Main';
 import LoginForm from '../components/LoginForm';
+import LoginPage from '../pages/LoginPage';
 import { useAuth } from '../contexts/auth'
 import CreateUserForm from '../components/CreateUserFormPage';
 
@@ -9,8 +10,11 @@ export default function Home() {
 
 	if (!user) return (
 		<div>
-			<LoginForm login={login} />
-			<CreateUserForm />
+			{/* <LoginForm login={login} /> */}
+			{/* <LoginPage />  */}
+			{/* <CreateUserForm /> */}
+			<Main />
+
 		</div>
 	)
 
