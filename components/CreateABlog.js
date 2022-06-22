@@ -7,8 +7,8 @@ export default function CreateBlogPage({createResource}){
     event.preventDefault();
     let newBlog = {
       title: event.target.title.value,
-      recipe_ingredients: event.target.recipe_ingredients.value,
-      recipe_directions: event.target.recipe_directions.value,
+      recipe_ingredients: createIngredientList(event),
+      recipe_directions: createDirectionList(event),
       recipe_image: event.target.recipe_image.value,
       difficulty: event.target.difficulty.value,
       recipe_intro: event.target.recipe_intro.value,
@@ -19,6 +19,18 @@ export default function CreateBlogPage({createResource}){
       updated_at: new Date(),
       owner: user.id,
     };
+
+    function createIngredientList(event){
+      let ingredients = event.target.recipe_ingredients.value.split(",");
+      for(let i = 0; i < ingredients.length; i++){
+        ingredients[i] = ingredients[i].replace(/^\s*/, "").replace(/\s*$/, "");
+      }
+      return ingredients
+    }
+    function createDirectionList(event){
+      let directions = event.target.recipe_directions.value.split(",");
+      return directions
+    }
     createResource(newBlog);
   }
 
@@ -27,32 +39,32 @@ export default function CreateBlogPage({createResource}){
     <div className="flex flex-col p-4">
       <h1 className="text-xl py-4 font-bold">Create A New Blog Post!</h1>
     <label htmlFor="title" className="py-4 font-bold text-2xl">Recipe Title</label>
-    <input type="text" id="title" name="title"></input>
+    <input placeholder="Type Title Of Recipe!" type="text" id="title" name="title"></input>
 
 
     <label htmlFor="recipe_intro" className="py-4 font-bold text-2xl">About the Recipe</label>
-    <input type="text" id="recipe_intro" name="recipe_intro" />
+    <input placeholder="Tell us about the recipe!" type="text" id="recipe_intro" name="recipe_intro" />
 
     <label htmlFor="recipe_image" className="py-4 font-bold text-2xl">Recipe Image</label>
-    <input type="text" id="recipe_image" name="recipe_image" />
+    <input placeholder="input url for image"type="text" id="recipe_image" name="recipe_image" />
 
     <label htmlFor="recipe_ingredients" className="py-4 font-bold text-2xl">Recipe Ingredients</label>
-    <input type="text" id="recipe_ingredients" name="recipe_ingredients" />
+    <input placeholder="input recipe ingredients with commas separating each ingredient (ex: potatoes, butter, milk)" id="recipe_ingredients" name="recipe_ingredients" />
 
     <label htmlFor="recipe_directions" className="py-4 font-bold text-2xl">Recipe Directions</label>
-    <input type="text" id="recipe_directions" name="recipe_directions" />
+    <input placeholder="input recipe directions with commas separating each direction (ex:  boil potatoes, add butter to potatoes, add milk to potatoes, mix)" id="recipe_directions" name="recipe_directions" />
 
     <label htmlFor="meal_type" className="py-4 font-bold text-2xl">Meal Type</label>
-    <input type="text" id="meal_type" name="meal_type" />
+    <input placeholder="Input Meal type (ex: Dinner, Breakfast, Snack etc)"type="text" id="meal_type" name="meal_type" />
 
     <label htmlFor="prep_time" className="py-4 font-bold text-2xl">Prep Time</label>
-    <input type="number" id="prep_time" name="prep_time" />
+    <input placeholder= "Input a number of minutes" type="number" id="prep_time" name="prep_time" />
 
     <label htmlFor="cook_time" className="py-4 font-bold text-2xl">Cook Time</label>
-    <input type="number" id="cook_time" name="cook_time" />
+    <input placeholder= "Input a number of minutes" type="number" id="cook_time" name="cook_time" />
 
     <label htmlFor="difficulty" className="py-4 font-bold text-2xl">Difficulty between 1 and 5</label>
-    <input type="number" id="difficulty" name="difficulty" />
+    <input placeholder="Input a number between 1 and 5" type="number" id="difficulty" name="difficulty" />
 
 
     <button type="submit" className="py-4 mt-4 rounded p bg-violet-500 font-bold">Submit</button>
