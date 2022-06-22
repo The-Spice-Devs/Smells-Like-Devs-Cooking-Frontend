@@ -1,10 +1,12 @@
 import axios from 'axios'
-
 import useResource from '../hooks/useResource';
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export default function CreateUserForm() {
 
   const { createUser } = useResource();
+  const router = useRouter();
 
   const registerURL = process.env.NEXT_PUBLIC_RESOURCE_REGISTER_URL;
 
@@ -27,10 +29,13 @@ export default function CreateUserForm() {
     try {
       await axios.post(registerURL, newUser);
       // mutate(); // mutate causes complete collection to be refetched
-    } catch (error) {
+          router.push('/LoginPage')
+        
+     
+    }
+      catch (error) {
       console.log(error);
     }
-
   }
 
   return (
@@ -42,7 +47,7 @@ export default function CreateUserForm() {
 
 
       <label htmlFor="password" className="py-4 font-bold text-2xl">Password:</label>
-      <input type="password" id="password" name="password" />
+      <input type="password" id="password" name="password" minLength="8"/>
 
       <label htmlFor="password2" className="py-4 font-bold text-2xl">Confirm Password:</label>
       <input type="password" id="password2" name="password2" />
