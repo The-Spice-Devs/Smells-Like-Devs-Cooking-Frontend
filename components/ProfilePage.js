@@ -1,19 +1,28 @@
 import useResource from '../hooks/useResource';
 import { useAuth } from '../contexts/auth'
 import Link from "next/link"
+import Header from './Header';
+import { useRouter } from 'next/router';
 
 export default function Main({ username, logout }) {
 
   const { resources } = useResource();
   const { user } = useAuth();
+  const router = useRouter();
 
   if (!resources) return <h2>No Blog Posts Available, Try again later! :)</h2>
 
-
+  // if (!user){
+  //   router.push('/');
+  // }
 
   return (
     <>
-    <h1>Welcome to Your Profile {user.username}</h1>
+    <Header />
+    {/* ternary: if no user, this page just returns a header, and goes to home route, because of logic on owner.js */}
+
+     {user &&   <>     
+     <h1>Welcome to Your Profile {user.username}</h1>
     <h2> Here are your create recipes:</h2>
       <div className="flex">
         {resources.map((blog) => {
@@ -46,6 +55,7 @@ export default function Main({ username, logout }) {
           )
         })}
       </div>
+      </>} 
     </>
   )
 }

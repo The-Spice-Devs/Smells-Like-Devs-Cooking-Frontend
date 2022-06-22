@@ -95,6 +95,7 @@ export default function CreateBlogPage({ createResource }) {
           name="recipe_intro"
         />
 
+
         <label htmlFor="recipe_images" className="py-4 text-2xl font-bold">
           Recipe Image
         </label>

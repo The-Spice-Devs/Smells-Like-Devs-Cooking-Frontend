@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useAuth } from '../contexts/auth'
 import { useEffect } from 'react'
 import useResource from '../hooks/useResource'
+import Header from '../components/Header';
 
 export default function BlogDetail() {
   const router = useRouter();
@@ -28,6 +29,7 @@ export default function BlogDetail() {
 
   return (
     <>
+      <Header />
       <h1 className="text-4xl py-4 font-bold border-2 border-violet-500 bg-violet-100 my-5 text-center">Recipe: {resource.title}</h1>
       <div className="border-2 my-10 border-violet-500 bg-violet-200 px-10">
         <p className="text-medium text-center my-5 text-2xl"> {resource.recipe_intro}</p>
@@ -61,9 +63,8 @@ export default function BlogDetail() {
         <p className="italic">Created By: {resource.owner} </p>
         <p className="italic">Date Submitted: {resource.created_at}</p>
         <p className="italic">Updated At: {resource.updated_at}</p>
-        <button onClick={saveFavorite}>Favorite this Recipe! :)</button>
+        {user && <><button onClick={saveFavorite}>Favorite this Recipe! :)</button></>}
       </div>
-      {/* <p>{JSON.stringify(resource)}</p> */}
     </>
   )
 }

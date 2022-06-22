@@ -1,9 +1,10 @@
 import useResource from '../hooks/useResource';
 import { useAuth } from '../contexts/auth'
 import Link from "next/link"
+import Header from "../components/Header";
 
-export default function Main({ username, logout }) {
-
+export default function Main({ logout }) {
+  const { user } = useAuth();
   const { resources } = useResource();
 
 
@@ -13,9 +14,8 @@ export default function Main({ username, logout }) {
 
   return (
     <>
-      <Link href="/">
-        <a onClick={logout} className="px-3 py-1 text-gray-100 bg-violet-600 rounded-lg">Sign Out</a>
-      </Link>
+      <Header />  
+      {user && <><p className="px-3 py-1 text-gray-800 bg-violet-100 rounded-lg">{user.username}</p></>}
       <div className="flex">
         {resources.map((blog) => {
           return (

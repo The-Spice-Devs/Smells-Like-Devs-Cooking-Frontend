@@ -1,7 +1,7 @@
 import CreateUserForm from '../components/CreateUserFormPage';
 import LoginForm from '../components/LoginForm';
 import { useAuth } from '../contexts/auth'
-
+import Header from '../components/Header';
 
 export default function SignupPage() {
 
@@ -9,6 +9,7 @@ export default function SignupPage() {
 
   if (!user) return (
     <div>
+      <Header />
       <CreateUserForm />
     </div>
   )
