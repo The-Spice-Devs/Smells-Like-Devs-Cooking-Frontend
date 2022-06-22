@@ -3,6 +3,7 @@ import { useAuth } from '../contexts/auth'
 import { useEffect } from 'react'
 import useResource from '../hooks/useResource'
 import Header from '../components/Header';
+import Image from 'next/image'
 
 export default function BlogDetail() {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function BlogDetail() {
       <h1 className="text-4xl py-4 font-bold border-2 border-violet-500 bg-violet-100 my-5 text-center">Recipe: {resource.title}</h1>
       <div className="border-2 my-10 border-violet-500 bg-violet-200 px-10">
         <p className="text-medium text-center my-5 text-2xl"> {resource.recipe_intro}</p>
-        <p> Image {resource.recipe_images}</p>
+        <Image src={resource.recipe_images} alt={resource.title} width={500} height={500}/> 
         <div>
           <p className="italic">Prep Time: {resource.prep_time} : Cook Time: {resource.cook_time}</p>
         <p className="font-bold mt-5"> Recipe Ingredients</p> {resource.recipe_ingredients.map((amt, i) => (
