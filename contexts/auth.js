@@ -45,7 +45,18 @@ export function AuthProvider(props) {
             user: null,
         }
         setState(prevState => ({ ...prevState, ...newState }));
+    
+        // this is needed for correct routing after logout 
+        try {
+            router.push('/')
+          }
+            catch (error) {
+            console.log(error);
+          }
+    
     }
+
+    
 
     return (
         <AuthContext.Provider value={state}>
