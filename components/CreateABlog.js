@@ -9,7 +9,7 @@ export default function CreateBlogPage({createResource}){
       title: event.target.title.value,
       recipe_ingredients: createIngredientList(event),
       recipe_directions: createDirectionList(event),
-      recipe_image: event.target.recipe_image.value,
+      recipe_images: event.target.recipe_image.value,
       difficulty: event.target.difficulty.value,
       recipe_intro: event.target.recipe_intro.value,
       prep_time: event.target.prep_time.value,
@@ -46,7 +46,7 @@ export default function CreateBlogPage({createResource}){
     <input placeholder="Tell us about the recipe!" type="text" id="recipe_intro" name="recipe_intro" />
 
     <label htmlFor="recipe_image" className="py-4 font-bold text-2xl">Recipe Image</label>
-    <input placeholder="input url for image"type="text" id="recipe_image" name="recipe_image" />
+    <input placeholder="input url for image"type="text" id="recipe_images" name="recipe_image" />
 
     <label htmlFor="recipe_ingredients" className="py-4 font-bold text-2xl">Recipe Ingredients</label>
     <input placeholder="input recipe ingredients with commas separating each ingredient (ex: potatoes, butter, milk)" id="recipe_ingredients" name="recipe_ingredients" />

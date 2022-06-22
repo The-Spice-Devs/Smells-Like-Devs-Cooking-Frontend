@@ -29,7 +29,7 @@ export default function CreateUserForm() {
     try {
       await axios.post(registerURL, newUser);
       // mutate(); // mutate causes complete collection to be refetched
-          router.push('/LoginPage')
+          router.push('/loginpage')
     }
       catch (error) {
       console.log(error);

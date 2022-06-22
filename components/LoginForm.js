@@ -1,11 +1,24 @@
+import Header from '../components/Header';
+import { useRouter } from 'next/router'
 
 export default function LoginForm({ login }) {
+  const router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault();
     login(event.target.username.value, event.target.password.value);
+    try {
+      // mutate(); // mutate causes complete collection to be refetched
+      router.push('/')
+    }
+      catch (error) {
+      console.log(error);
+    }
   }
 
   return (
+    <>
+    <Header />
     <form
       onSubmit={handleSubmit}
       className="justify-center w-full h-full max-w-screen-xl px-5 py-3 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-violet-200 border-violet-500 my-5"
@@ -28,5 +41,6 @@ export default function LoginForm({ login }) {
         <button className="py-4 mt-4 rounded p bg-violet-500 font-bold">SIGN IN</button>
       </fieldset>
     </form>
+    </>
   );
 }
