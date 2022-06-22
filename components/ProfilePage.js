@@ -1,6 +1,7 @@
 import useResource from '../hooks/useResource';
 import { useAuth } from '../contexts/auth'
 import Link from "next/link"
+import Header from './Header';
 
 export default function Main({ username, logout }) {
 
@@ -13,6 +14,7 @@ export default function Main({ username, logout }) {
 
   return (
     <>
+    <Header />
     <h1>Welcome to Your Profile {user.username}</h1>
     <h2> Here are your create recipes:</h2>
       <div className="flex">
