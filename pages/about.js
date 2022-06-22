@@ -1,9 +1,22 @@
 import Header from '../components/Header';
+import Image from 'next/image';
+import banner from '../assets/bannerThree.jpeg'
 
 export default function About() {
   return (
     <>
       <Header />
+      {/* <div className='w-full h-36'>
+      <Image src={banner} alt='The Spice Devs!' layout='fill'/>
+      </div> */}
+      <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '25vw', opacity:'0.7' }}>
+        <Image
+          src={banner}
+          layout="fill"
+          objectFit="cover"
+          alt="Yhe SPice Devs"
+        />
+      </div>
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-4 text-center bg-violet-200 border-2 border-violet-400 rounded-lg text-md gap-x-8">
         <h2 className="text-3xl font-bold underline"> Ella Svete </h2>
         <p > Neat Cool Stuff about Ella. Have some Cat ipsum for placeholder: As lick i the shoes yowling nonstop the whole night but making sure that fluff gets into the owner&apos;s eyes, for swat at dog, for purr like a car engine oh yes, there is my human slave woman she does best pats ever that all i like about her hiss meow , yet somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock. Destroy dog play time, scamper, mice and i heard this rumor where the humans are our owners, pfft, what do they know?! leave dead animals as gifts. </p>
