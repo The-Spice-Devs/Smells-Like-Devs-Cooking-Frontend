@@ -2,12 +2,13 @@ import { useAuth } from "../contexts/auth";
 import React, { useState } from "react";
 import axios from "axios";
 import useResource from "../hooks/useResource";
+import { useRouter } from "next/router";
 
 
 export default function CreateBlogPage({ createResource }) {
   const cloudinaryURL = process.env.NEXT_PUBLIC_RESOURCE_CLOUD_URL;
   const { user } = useAuth();
-
+  const router = useRouter();
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
 
@@ -63,6 +64,7 @@ export default function CreateBlogPage({ createResource }) {
 
     if (url.length > 5) {
       createResource(newBlog);
+      router.push("/")
     }
   }
 
@@ -82,7 +84,8 @@ export default function CreateBlogPage({ createResource }) {
           placeholder="Type Title Of Recipe!"
           type="text"
           id="title"
-          name="title"
+          name="title" 
+          required
         ></input>
 
         <label htmlFor="recipe_intro" className="py-4 text-2xl font-bold">
@@ -93,6 +96,7 @@ export default function CreateBlogPage({ createResource }) {
           type="text"
           id="recipe_intro"
           name="recipe_intro"
+          required
         />
 
 
@@ -103,6 +107,7 @@ export default function CreateBlogPage({ createResource }) {
         <input
           type="file"
           onChange={(e) => setImage(e.target.files[0])}
+          required
         ></input>
 
         <label htmlFor="recipe_ingredients" className="py-4 text-2xl font-bold">
@@ -112,6 +117,7 @@ export default function CreateBlogPage({ createResource }) {
           placeholder="input recipe ingredients with commas separating each ingredient (ex: potatoes, butter, milk)"
           id="recipe_ingredients"
           name="recipe_ingredients"
+          required
         />
 
         <label htmlFor="recipe_directions" className="py-4 text-2xl font-bold">
@@ -121,17 +127,25 @@ export default function CreateBlogPage({ createResource }) {
           placeholder="input recipe directions with commas separating each direction (ex:  boil potatoes, add butter to potatoes, add milk to potatoes, mix)"
           id="recipe_directions"
           name="recipe_directions"
+          required
         />
 
         <label htmlFor="meal_type" className="py-4 text-2xl font-bold">
           Meal Type
         </label>
-        <input
-          placeholder="Input Meal type (ex: Dinner, Breakfast, Snack etc)"
+        <select
           type="text"
           id="meal_type"
           name="meal_type"
-        />
+          required
+          >
+            <option value="" selected disabled hidden>Select an Option</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="snack">Snack</option>
+            <option value="dinner">Dinner</option>
+            <option value="dessert">Dessert</option>
+            </select>
 
         <label htmlFor="prep_time" className="py-4 text-2xl font-bold">
           Prep Time
@@ -141,6 +155,7 @@ export default function CreateBlogPage({ createResource }) {
           type="number"
           id="prep_time"
           name="prep_time"
+          required
         />
 
         <label htmlFor="cook_time" className="py-4 text-2xl font-bold">
@@ -151,17 +166,23 @@ export default function CreateBlogPage({ createResource }) {
           type="number"
           id="cook_time"
           name="cook_time"
+          required
         />
 
         <label htmlFor="difficulty" className="py-4 text-2xl font-bold">
           Difficulty between 1 and 5
         </label>
-        <input
-          placeholder="Input a number between 1 and 5"
+        <select
           type="number"
           id="difficulty"
           name="difficulty"
-        />
+          required >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
         <button
           type="submit"
