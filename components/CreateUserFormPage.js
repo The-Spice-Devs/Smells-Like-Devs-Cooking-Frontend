@@ -1,19 +1,37 @@
 import axios from 'axios'
 import useResource from '../hooks/useResource';
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function CreateUserForm() {
+
+  const [password, setPassword] = useState();
+  const [password2, setPassword2] = useState();
+  const[error, setError] = useState();
+
+  console.log("Password1= ", password)
+  
 
   const { createUser } = useResource();
   const router = useRouter();
 
   const registerURL = process.env.NEXT_PUBLIC_RESOURCE_REGISTER_URL;
 
+  // async function matchPasswords (event) {
+  //   if (password != event.target.value){
+  //     console.log(event.target.value)
+  //   setError('passwords must match')}
+  // }
+
   const handleCreateUserFormSubmit = async (event) => {
 
     // fields = ('username', 'password', 'password2',
     // 'email', 'first_name', 'last_name')
+
+    if (password != event.target.password2.value){
+      console.log("Password2= ", event.target.password2.value)
+    alert('passwords must match')
+  }
 
     event.preventDefault();
     let newUser = {
@@ -33,6 +51,7 @@ export default function CreateUserForm() {
     }
       catch (error) {
       console.log(error);
+      alert(error.response.request.response);
     }
   }
 
@@ -45,10 +64,11 @@ export default function CreateUserForm() {
 
 
       <label htmlFor="password" className="py-4 font-bold text-2xl">Password: (must be 8 characters must contain atleast 1 letter and 1 number)</label>
-      <input type="password" id="password" name="password" minLength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="must be 8 characters must contain atleast 1 letter and 1 number" required/>
+      <input type="password" id="password" name="password" minLength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="must be 8 characters must contain atleast 1 letter and 1 number" onChange={(e)=> setPassword(e.target.value)} required/>
 
       <label htmlFor="password2" className="py-4 font-bold text-2xl">Confirm Password:</label>
       <input type="password" id="password2" name="password2" required/>
+      <div>{error}</div>
 
       <label htmlFor="email" className="py-4 font-bold text-2xl">Email:</label>
       <input type="email" id="email" name="email" required/>
