@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 const App = () => {
+  const cloudinaryURL = process.env.NEXT_PUBLIC_RESOURCE_CLOUD_URL;
+
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const uploadImage = () => {
@@ -7,7 +9,7 @@ const App = () => {
     data.append("file", image);
     data.append("upload_preset", "recipe_images");
     data.append("cloud_name", "dkgm8e6lz");
-    fetch("https://api.cloudinary.com/v1_1/dkgm8e6lz/image/upload", {
+    fetch(cloudinaryURL, {
       method: "post",
       body: data,
     })
