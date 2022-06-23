@@ -1,43 +1,37 @@
 import useResource from '../hooks/useResource';
-import { useAuth } from '../contexts/auth'
 import Link from "next/link"
 import Header from "../components/Header";
 import Image from 'next/image'
 import banner from '../assets/mainBanner.jpeg'
-
-export default function Main({ logout }) {
-  const { user } = useAuth();
+import { useAuth } from '../contexts/auth';
+export default function Main() {
   const { resources } = useResource();
-
-
+  const { user } = useAuth();
+console.log(user)
   if (!resources) return <h2>No Blog Posts Available, Try again later! :)</h2>
-
-
-
   return (
     <>
       <Header />
-      <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '25vw' }}>
-      <h1 className="text-8xl z-10 font-Rampart" style={{ position: 'absolute', top: '30%',left:'15%', opacity: '1', color: 'rgb(41,0,0)'}}>Smells Like Devs Cooking</h1>
+      <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '20vw' }}>
+      <h1 className="z-10 text-7xl font-MajorMono" style={{ position: 'absolute', top: '30%',left:'15%', opacity: '1', color: 'rgb(41,0,0)'}}>Smells Like Devs Cooking</h1>
         <Image
           src={banner}
           layout="fill"
           objectFit="cover"
-          alt="Yhe SPice Devs"
-          style={{opacity:'0.7'}}
+          alt="Home Page Banner"
+          style={{opacity:'0.5', zIndex:'-1'}}
+          priority
         />
       </div>
-      {user && <><p className="px-3 py-1 text-gray-800 bg-violet-100 rounded-lg">{user.username}</p></>}
-      <div className="flex flex-wrap">
+        <div className="items-center justify-center gap-4 p-8 mx-auto my-7 text-center rounded-lg text-md gap-x-8 w-4/5">
+          <p className="text-4xl" style={{color: 'rgb(100,0,0)'}}>Welcome! Below you&apos;ll find all of the recipe&apos;s that have been created by our users! <br></br>Click on the Title to Navigate to the Full Recipe</p>
+        </div>
+      <div className="flex flex-wrap justify-evenly mb-20">
         {resources.map((blog) => {
           return (
-            <div className=' my-10 mx-3 shadow-lg w-80 shadow-blue-500/50' key={blog.id}>
-              <Link href={`/${blog.id}`}><a className="text-2xl w-250 flex justify-center font-bold underline">{blog.title}</a></Link>
-            
-
-                <Image src={blog.recipe_images} alt={blog.title} width={320} height={320} />
-
-       
+            <div className='shadow-2xl rounded-md pt-1 bg-stone-100 w-80 shadow-amber-900 mx-7 my-10 px-1' key={blog.id}>
+              <Link href={`/${blog.id}`}><a className="text-2xl w-250 flex justify-center text-amber-900 pb-5">{blog.title}</a></Link>
+                <Image src={blog.recipe_images} alt={blog.title} width={320} height={320} className="rounded-md"/>
             </div>
           )
         })}

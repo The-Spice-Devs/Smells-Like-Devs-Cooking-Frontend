@@ -1,8 +1,9 @@
 import { useAuth } from "../contexts/auth";
 import React, { useState } from "react";
 import axios from "axios";
-import useResource from "../hooks/useResource";
 import { useRouter } from "next/router";
+import Image from 'next/image'
+import banner from '../assets/mainBanner.jpeg'
 
 
 export default function CreateBlogPage({ createResource }) {
@@ -16,7 +17,7 @@ export default function CreateBlogPage({ createResource }) {
 
   console.log("USER: ", user);
 
-  
+
 
   async function formHandler(event) {
     event.preventDefault();
@@ -68,15 +69,27 @@ export default function CreateBlogPage({ createResource }) {
     }
   }
 
-  
+
   return (
+    <>
+    <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '20vw' }}>
+    <h1 className="text-7xl z-10 font-MajorMono" style={{ position: 'absolute', top: '30%',left:'15%', opacity: '1', color: 'rgb(41,0,0)'}}>Smells Like Devs Cooking</h1>
+      <Image
+        src={banner}
+        layout="fill"
+        objectFit="cover"
+        alt="Home Page Banner"
+        style={{opacity:'0.6', zIndex:'-1'}}
+        priority
+      />
+    </div>
     <form
       onSubmit={formHandler}
       method="post"
-      className="justify-center w-full h-full max-w-screen-xl px-5 py-3 my-5 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-violet-200 border-violet-500"
+      className="justify-left w-2/6 h-full px-5 py-3 ml-auto mr-auto rounded-lg top-56 mt-5 mb-10 border-2 border-orange-500" style={{color: 'rgb(41,0,0)'}}
     >
       <div className="flex flex-col p-4">
-        <h1 className="py-4 text-xl font-bold">Create A New Blog Post!</h1>
+        <h1 className="py-4 text-3xl font-bold text-center">Create A New Blog Post!</h1>
         <label htmlFor="title" className="py-4 text-2xl font-bold">
           Recipe Title
         </label>
@@ -84,8 +97,9 @@ export default function CreateBlogPage({ createResource }) {
           placeholder="Type Title Of Recipe!"
           type="text"
           id="title"
-          name="title" 
+          name="title"
           required
+          className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
         ></input>
 
         <label htmlFor="recipe_intro" className="py-4 text-2xl font-bold">
@@ -96,7 +110,7 @@ export default function CreateBlogPage({ createResource }) {
           type="text"
           id="recipe_intro"
           name="recipe_intro"
-          required
+          required className="bg-stone-50 border border-2 border-orange-200 placeholder-stone-400 px-2"
         />
 
 
@@ -107,27 +121,27 @@ export default function CreateBlogPage({ createResource }) {
         <input
           type="file"
           onChange={(e) => setImage(e.target.files[0])}
-          required
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
         ></input>
 
         <label htmlFor="recipe_ingredients" className="py-4 text-2xl font-bold">
-          Recipe Ingredients
+          Recipe Ingredients<br></br><p className=" font-normal text-sm italic">Separate each ingredient with a comma</p>
         </label>
         <input
-          placeholder="input recipe ingredients with commas separating each ingredient (ex: potatoes, butter, milk)"
+          placeholder="(ex: potatoes, butter, milk)"
           id="recipe_ingredients"
           name="recipe_ingredients"
-          required
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
         />
 
         <label htmlFor="recipe_directions" className="py-4 text-2xl font-bold">
-          Recipe Directions
+          Recipe Directions<br></br><p className=" font-normal text-sm italic">Separate each direction with a comma</p>
         </label>
         <input
-          placeholder="input recipe directions with commas separating each direction (ex:  boil potatoes, add butter to potatoes, add milk to potatoes, mix)"
+          placeholder="(ex:  boil potatoes, add butter to potatoes, add milk to potatoes, mix)"
           id="recipe_directions"
           name="recipe_directions"
-          required
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
         />
 
         <label htmlFor="meal_type" className="py-4 text-2xl font-bold">
@@ -137,16 +151,16 @@ export default function CreateBlogPage({ createResource }) {
           type="text"
           id="meal_type"
           name="meal_type"
-          required
-          >
-            <option value="" selected disabled hidden>Select an Option</option>
-            <option value="breakfast">Breakfast</option>
-            <option value="secondBreakfast">Second Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="snack">Snack</option>
-            <option value="dinner">Dinner</option>
-            <option value="dessert">Dessert</option>
-            </select>
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
+        >
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="secondBreakfast">Second Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="snack">Snack</option>
+          <option value="dinner">Dinner</option>
+          <option value="dessert">Dessert</option>
+        </select>
 
         <label htmlFor="prep_time" className="py-4 text-2xl font-bold">
           Prep Time
@@ -156,7 +170,7 @@ export default function CreateBlogPage({ createResource }) {
           type="number"
           id="prep_time"
           name="prep_time"
-          required
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
         />
 
         <label htmlFor="cook_time" className="py-4 text-2xl font-bold">
@@ -167,7 +181,7 @@ export default function CreateBlogPage({ createResource }) {
           type="number"
           id="cook_time"
           name="cook_time"
-          required
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2"
         />
 
         <label htmlFor="difficulty" className="py-4 text-2xl font-bold">
@@ -177,21 +191,22 @@ export default function CreateBlogPage({ createResource }) {
           type="number"
           id="difficulty"
           name="difficulty"
-          required >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+          required className="bg-stone-50 h border border-2 border-orange-200 placeholder-stone-400 px-2" >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
 
         <button
           type="submit"
-          className="py-4 mt-4 font-bold rounded p bg-violet-500"
+          className="py-4 mt-4 rounded p bg-orange-900 text-orange-50 font-bold w-1/2"
         >
           Submit
         </button>
       </div>
     </form>
+    </>
   );
 }
