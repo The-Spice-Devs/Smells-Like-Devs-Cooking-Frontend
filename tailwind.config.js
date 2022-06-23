@@ -6,7 +6,7 @@ module.exports = {
   theme: {
       extend: {
         fontFamily: {
-          Rampart: ["Rampart One", "cursive"],
+          MajorMono: ['Major Mono Display', 'monospace'],
         },
       },
   },
