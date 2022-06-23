@@ -18,6 +18,25 @@ export default function Main() {
     deleteResource(event.currentTarget.id);
     // router.push("/owner")
   }
+
+  function filterFavResourcesForCurrentUser(){ 
+    // favResources looks like [{id: 17, owner: 1, blogPostID: 2}, ...] 
+    // filteredResources includes favResources made by current user
+    const filteredResources = favResources.filter(resource => user.id == resource.owner)
+ 
+    // result is an array of blog ids for blogs whose owner is the current user 
+    const filteredResourcesBlogIds = filteredResources.map(blogResource => {
+      return blogResource.blogPostID; 
+    })
+
+    const filteredBlogPosts = resources.filter((blog) =>{
+      return filteredResourcesBlogIds.includes(blog.id)
+    })
+
+    return filteredBlogPosts
+  }
+  
+
   return (
     <>
       <Header />
@@ -61,7 +80,7 @@ export default function Main() {
           </div>
           <div className="flex flex-wrap justify-center w-3/4">
             {resources.map((blog) => {
-              if (user.id == blog.owner)
+              if (user.id == blog.owner) {
                 return (
                   <div
                     className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300"
@@ -87,42 +106,53 @@ export default function Main() {
                     </button>
                   </div>
                 );
+              }
             })}
           </div>
+
           <div className="items-center justify-center w-4/5 gap-4 p-8 mx-auto text-center bg-orange-200 border-2 border-orange-400 rounded-lg my-7 text-md gap-x-8">
             <h2 className="pb-10 text-4xl font-bold text-amber-900">
               {" "}
               Here are the Recipes you have Favorited:
             </h2>
           </div>
+
+
           <div className="flex flex-wrap justify-center w-3/4">
-            {favResources.map((favorite) => {
-              
-              if (user.id == favorite.owner) {
-                
-               let favMappedData = resources.map((blog) => {
-                  if (blog.id == favorite.blogPostID){
-                    
-                 
-                    
-                    console.log("FAVVV: ", blog.id)
-                    return (
-                      <div
-                      className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300"
-                      key={blog.id}
-                      >
-                        <p className="py-1">Meal Type: {blog.meal_type}</p>
-                    <p className="py-1">Level of Difficulty: {blog.difficulty} out of 5</p>
+
+            
+            {
+              filterFavResourcesForCurrentUser().map((blog) => {
+                return (
+                  <div
+                    className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300"
+                    key={blog.id}
+                  >
+                    <Link href={`/${blog.id}`}>
+                      <a className="text-2xl font-bold underline">
+                        {blog.title}
+                      </a>
+                    </Link>
+
+                    <p className="italic">
+                      Author: {blog.owner} Date Created: {blog.created_at}
+                    </p>
+                    <p className="py-1">Meal Type: {blog.meal_type}</p>
+                    <p className="py-1">
+                      Level of Difficulty: {blog.difficulty} out of 5
+                    </p>
                     <p className="py-1"> Image {blog.recipe_images}</p>
                     <p className="py-1 italic">Ratings Coming Soon!</p>
                     <p className="py-1 italic">Dietary Tags Coming Soon!</p>
-                      </div>
-                    );
-                    {favMappedData}
-                  }
-                });
-              }
-            })}
+                    <button id={blog.id} onClick={deleteBlogPost}>
+                      DELETE
+                    </button>
+                  </div>
+                );
+              })
+
+            }
+            
           </div>
         </>
       )}
