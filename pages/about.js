@@ -36,7 +36,7 @@ export default function About() {
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-7 text-center bg-orange-200 border-2 border-orange-400 rounded-lg text-md gap-x-8 w-4/5 text-amber-900">
         <h2 className="text-5xl font-bold underline"> Ella Svete 🐈 </h2>
         <Image src={Ella} alt="Fancy Picture of Ella" className="rounded-full"/>
-        <p className="leading-loose"> Neat Cool Stuff about Ella. Have some Cat ipsum for placeholder: As lick i the shoes yowling nonstop the whole night but making sure that fluff gets into the owner&apos;s eyes, for swat at dog, for purr like a car engine oh yes, there is my human slave woman she does best pats ever that all i like about her hiss meow , yet somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock. Destroy dog play time, scamper, mice and i heard this rumor where the humans are our owners, pfft, what do they know?! leave dead animals as gifts. </p>
+        <p className="leading-loose">Hello! I am a fullstack developer living in Olympia, WA. I enjoy playing music and am also a metal smith. I love cooking with/for friends and family. Thanks for visiting our website!</p>
         <div>
           <button className="border border-orange-500 bg-orange-300 mx-3 px-2 py-2 rounded-md text-amber-900" href="https://github.com/EllaSvete">GitHub Profile</button>
           <button className="border border-orange-500 bg-orange-300 mx-3 my-5 px-2 py-2 rounded-md text-amber-900" href="https://www.linkedin.com/in/ellasvete/" >LinkedIn Profile</button>
