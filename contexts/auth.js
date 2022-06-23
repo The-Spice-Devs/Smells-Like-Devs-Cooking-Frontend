@@ -34,6 +34,7 @@ export function AuthProvider(props) {
             user: {
                 username: decodedAccess.username,
                 email: decodedAccess.email,
+                name: decodedAccess.name,
                 id: decodedAccess.user_id
             },
         }

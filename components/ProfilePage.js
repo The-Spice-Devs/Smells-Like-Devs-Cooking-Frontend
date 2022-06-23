@@ -95,35 +95,32 @@ export default function Main() {
               Here are the Recipes you have Favorited:
             </h2>
           </div>
-          <div className="flex flex-wrap justify-center w-3/4">
-            {favResources.map((favorite) => {
-              
-              if (user.id == favorite.owner) {
-                
-               let favMappedData = resources.map((blog) => {
-                  if (blog.id == favorite.blogPostID){
-                    
-                 
-                    
-                    console.log("FAVVV: ", blog.id)
-                    return (
-                      <div
-                      className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300"
-                      key={blog.id}
-                      >
-                        <p className="py-1">Meal Type: {blog.meal_type}</p>
-                    <p className="py-1">Level of Difficulty: {blog.difficulty} out of 5</p>
+
+          {favResources.forEach((favorite) => {
+            if (user.id == favorite.owner)
+              return (resources.map((blog) => {
+                if (favorite.blogPostID == blog.id) {
+                  console.log("blog.title: ", blog.title);
+
+                  return (<p key={blog.title}>{blog.title}</p>);
+                  <div
+                    className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300"
+                    key={blog.id}
+                  >
+                    <p>{favorite.owner}</p>
+                    <p className="py-1">Meal Type: {blog.meal_type}</p>
+                    <p className="py-1">
+                      Level of Difficulty: {blog.difficulty} out of 5
+                    </p>
                     <p className="py-1"> Image {blog.recipe_images}</p>
                     <p className="py-1 italic">Ratings Coming Soon!</p>
                     <p className="py-1 italic">Dietary Tags Coming Soon!</p>
-                      </div>
-                    );
-                    {favMappedData}
-                  }
-                });
-              }
+                  </div>
+                }
+              })
+              );
+              return <p>blahhhhhhh</p>
             })}
-          </div>
         </>
       )}
     </>
