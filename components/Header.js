@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <>
       <header className="flex relative">
-        <div className="w-full bg-amber-700 fixed top-0 z-10 opacity-80">
+        <div className="w-full bg-amber-700 fixed top-0 z-20 opacity-80">
           {/* <h1 className="text-4xl font-Rampart text-center"> Welcome to Smells Like Devs Cooking</h1> */}
           <nav className="flex justify-around py-2 text-orange-50 text-lg">
             <Link href="/"><a style={{display: 'flex', justifyContent: 'space-between'}}><FaHamburger />&nbsp;&nbsp;Home</a></Link>
