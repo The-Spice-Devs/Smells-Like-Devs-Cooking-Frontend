@@ -9,7 +9,7 @@ ___
 - Michele Salazar [GitHub](https://github.com/MISalz) [LinkedIn](https://www.linkedin.com/in/michellesalazar010/)
 - Eden Brekke [GitHub](https://github.com/eden-brekke) [LinkedIn](https://www.linkedin.com/in/eden-brekke/)
 
-## Project Description 
+## Project Description
 
 ___
 [Deployed Site](https://smells-like-devs-cooking-frontend-rho.vercel.app/)
