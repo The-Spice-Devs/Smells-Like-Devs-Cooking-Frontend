@@ -24,7 +24,7 @@ console.log(user)
         />
       </div>
         <div className="items-center justify-center gap-4 p-8 mx-auto my-7 text-center rounded-lg text-md gap-x-8 w-4/5">
-          <p className="text-4xl" style={{color: 'rgb(100,0,0)'}}>Welcome! Below you&apos;ll find all of the recipe&apos;s that have been created by our users! <br></br>Click on the Title to Navigate to the Full Recipe</p>
+          <p className="text-4xl" style={{color: 'rgb(100,0,0)'}}>Welcome! Below you&apos;ll find all of the recipes that have been created by our users! <br></br>Click on the Title to Navigate to the Full Recipe</p>
         </div>
       <div className="flex flex-wrap justify-evenly mb-20">
         {resources.map((blog) => {
