@@ -20,8 +20,8 @@ function MyApp({ Component, pageProps }) {
             </div>
             <div className="text-center pt-10">
             <a style={{display: 'flex', justifyContent: 'space-around'}} href="https://github.com/The-Spice-Devs"><FaPepperHot />The Spice Devs GitHub</a>
-            <a style={{display: 'flex', justifyContent: 'space-around'}} href="https://github.com/The-Spice-Devs"> <BsGithub /> &nbsp;&nbsp;Smells Like Devs Cooking Front End Code </a>
-            <a style={{display: 'flex', justifyContent: 'space-around'}} href="https://github.com/The-Spice-Devs"><BsGithub /> &nbsp;&nbsp;Smells Like Devs Cooking API Code </a>
+            <a style={{display: 'flex', justifyContent: 'space-around'}} href="https://github.com/The-Spice-Devs/Smells-Like-Devs-Cooking-Frontend"> <BsGithub /> &nbsp;&nbsp;Smells Like Devs Cooking Front End Code </a>
+            <a style={{display: 'flex', justifyContent: 'space-around'}} href="https://github.com/The-Spice-Devs/Smells-Like-Devs-Cooking-API"><BsGithub /> &nbsp;&nbsp;Smells Like Devs Cooking API Code </a>
             </div>
             <div className="flex pt-2">
               <p> Friends List: &nbsp;&nbsp;</p>
