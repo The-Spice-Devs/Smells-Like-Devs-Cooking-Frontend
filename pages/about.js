@@ -36,7 +36,7 @@ export default function About() {
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-4 text-center bg-violet-200 border-2 border-violet-400 rounded-lg text-md gap-x-8">
         <h2 className="text-3xl font-bold underline"> Michelle Salazar </h2>
         <p > Michelle Salazar, Full stack Software Developer with background in Medical Reimbursement and  Business Analytics.  Food 🍕 Connoisseur, Professional Child 🤠 Wrangler, information/education 🧽 Sponge, TrueCrime 🕵️‍♀️ addict.
-        Sometimes, it takes me all day to get nothing done. I like my bed more than I like most people. I'm half princess, half ninja. Creativity is my second language.
+        Sometimes, it takes me all day to get nothing done. I like my bed more than I like most people. I am half princess, half ninja. Creativity is my second language.
  </p>
         <div>
           <button className="border border-violet-500 bg-violet-300 mx-3" href="https://github.com/MISalz">GitHub Profile</button>
@@ -45,7 +45,7 @@ export default function About() {
       </div>
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-4 text-center bg-violet-200 border-2 border-violet-400 rounded-lg text-md gap-x-8">
         <h2 className="text-3xl font-bold underline"> Thomas Basham </h2>
-        <p > 👽👽greetings👽👽 I'm A full-stack dev based in the Seattle area. I spend most of my free time creating things! I like producing 🎶music🎵, making digital 🎨art🖌️, 🌱growing plants🪴 and spending time 🏔️outdoors🌄 to get my mind right🧘‍♂️. Before learning software development I was in the Army, and when I wasn't a soldier, I was a 🛠️carpenter🪚.
+        <p > 👽👽greetings👽👽 I am A full-stack dev based in the Seattle area. I spend most of my free time creating things! I like producing 🎶music🎵, making digital 🎨art🖌️, 🌱growing plants🪴 and spending time 🏔️outdoors🌄 to get my mind right🧘‍♂️. Before learning software development I was in the Army, and when I was not a soldier, I was a 🛠️carpenter🪚.
  </p>
         <div>
           <button className="border border-violet-500 bg-violet-300 mx-3" href="https://github.com/Thomas-Basham">GitHub Profile</button>
