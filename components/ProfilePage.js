@@ -4,14 +4,19 @@ import Link from "next/link"
 import Header from './Header';
 import Image from 'next/image';
 import banner from '../assets/profileBanner.jpeg'
+import React, { useState } from "react";
 
 export default function Main() {
 
-  const { resources } = useResource();
+  const { resources, deleteResource } = useResource();
   const { user } = useAuth();
-
   if (!resources) return <h2>No Blog Posts Available, Try again later! :)</h2>
-
+  function deleteBlogPost(event){
+    event.preventDefault();
+    
+    deleteResource(event.currentTarget.id);
+    // router.push("/owner")
+  }
   return (
     <>
       <Header />
@@ -35,10 +40,17 @@ export default function Main() {
       </div>
         <div className="flex flex-wrap w-3/4 justify-center">
         {resources.map((blog) => {
+          if (user.id == blog.owner)
           return (
-            <div className='shadow-2xl w-80 shadow-amber-500 mx-7 my-10' style={{color: 'rgb(41,0,0)'}} key={blog.id}>
-              <Link href={`/${blog.id}`}><a className="text-2xl w-250 flex justify-center font-bold underline pb-5" >{blog.title}</a></Link>
-                <Image src={blog.recipe_images} alt={blog.title} width={320} height={320} />
+            <div className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300" key={blog.id}>
+              <Link href={`/${blog.id}`}><a className="text-2xl font-bold underline">{blog.title}</a></Link>
+              <p className="italic">Author: {blog.owner} Date Created: {blog.created_at}</p>
+              <p className="py-1">Meal Type: {blog.meal_type}</p>
+              <p className="py-1">Level of Difficulty: {blog.difficulty} out of 5</p>
+              <p className="py-1"> Image {blog.recipe_images}</p>
+              <p className="py-1 italic">Ratings Coming Soon!</p>
+              <p className="py-1 italic">Dietary Tags Coming Soon!</p>
+              <button id={blog.id} onClick={deleteBlogPost}>DELETE</button>
             </div>
           )
         })}
@@ -48,10 +60,16 @@ export default function Main() {
       </div>
         <div className="flex flex-wrap w-3/4 justify-center">
         {resources.map((blog) => {
+          if (user.id == blog.owner)
           return (
-            <div className='shadow-2xl w-80 shadow-amber-500 mx-7 my-10' style={{color: 'rgb(41,0,0)'}} key={blog.id}>
-              <Link href={`/${blog.id}`}><a className="text-2xl w-250 flex justify-center font-bold underline pb-5" >{blog.title}</a></Link>
-                <Image src={blog.recipe_images} alt={blog.title} width={320} height={320} />
+            <div className="w-1/4 pl-3 mx-3 my-10 text-center border-2 border-violet-500 bg-violet-300" key={blog.id}>
+              <Link href={`/${blog.id}`}><a className="text-2xl font-bold underline">{blog.title}</a></Link>
+              <p className="italic">Author: {blog.owner} Date Created: {blog.created_at}</p>
+              <p className="py-1">Meal Type: {blog.meal_type}</p>
+              <p className="py-1">Level of Difficulty: {blog.difficulty} out of 5</p>
+              <p className="py-1"> Image {blog.recipe_images}</p>
+              <p className="py-1 italic">Ratings Coming Soon!</p>
+              <p className="py-1 italic">Dietary Tags Coming Soon!</p>
             </div>
           )
         })}
