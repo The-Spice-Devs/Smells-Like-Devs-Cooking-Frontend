@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios'
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + '/api/token/';
+import { useRouter } from "next/router";
 
 const AuthContext = createContext();
 
@@ -13,6 +14,7 @@ export function useAuth() {
 }
 
 export function AuthProvider(props) {
+    const router = useRouter();
 
     const [state, setState] = useState({
         tokens: null,
@@ -20,7 +22,7 @@ export function AuthProvider(props) {
         login,
         logout,
     });
-
+    console.log("AuthProvider State:", state)
     async function login(username, password) {
 
         const response = await axios.post(tokenUrl, { username, password });
@@ -40,6 +42,7 @@ export function AuthProvider(props) {
     }
 
     function logout() {
+
         const newState = {
             tokens: null,
             user: null,
