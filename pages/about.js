@@ -9,12 +9,14 @@ export default function About() {
       {/* <div className='w-full h-36'>
       <Image src={banner} alt='The Spice Devs!' layout='fill'/>
       </div> */}
-      <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '25vw', opacity:'0.7' }}>
+      <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '25vw' }}>
+      <h1 className="text-8xl font-Rampart text-center" style={{ position: 'absolute', top: '30%',left:'15%', opacity: '1'}}>Smells Like Devs Cooking</h1>
         <Image
           src={banner}
           layout="fill"
           objectFit="cover"
           alt="Yhe SPice Devs"
+          style={{opacity:'0.7', zIndex: '-1'}}
         />
       </div>
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-4 text-center bg-violet-200 border-2 border-violet-400 rounded-lg text-md gap-x-8">
