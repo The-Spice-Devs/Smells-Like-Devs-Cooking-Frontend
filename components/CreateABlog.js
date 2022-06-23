@@ -1,7 +1,6 @@
 import { useAuth } from "../contexts/auth";
 import React, { useState } from "react";
 import axios from "axios";
-import useResource from "../hooks/useResource";
 import { useRouter } from "next/router";
 
 
@@ -16,7 +15,7 @@ export default function CreateBlogPage({ createResource }) {
 
   console.log("USER: ", user);
 
-  
+
 
   async function formHandler(event) {
     event.preventDefault();
@@ -68,12 +67,12 @@ export default function CreateBlogPage({ createResource }) {
     }
   }
 
-  
+
   return (
     <form
       onSubmit={formHandler}
       method="post"
-      className="justify-center w-full h-full max-w-screen-xl px-5 py-3 my-5 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-violet-200 border-violet-500"
+      className="justify-center w-full h-full max-w-screen-xl px-5 py-3 my-20 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-orange-200 border-orange-500"
     >
       <div className="flex flex-col p-4">
         <h1 className="py-4 text-xl font-bold">Create A New Blog Post!</h1>
@@ -84,7 +83,7 @@ export default function CreateBlogPage({ createResource }) {
           placeholder="Type Title Of Recipe!"
           type="text"
           id="title"
-          name="title" 
+          name="title"
           required
         ></input>
 
@@ -138,15 +137,15 @@ export default function CreateBlogPage({ createResource }) {
           id="meal_type"
           name="meal_type"
           required
-          >
-            <option value="" selected disabled hidden>Select an Option</option>
-            <option value="breakfast">Breakfast</option>
-            <option value="secondBreakfast">Second Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="snack">Snack</option>
-            <option value="dinner">Dinner</option>
-            <option value="dessert">Dessert</option>
-            </select>
+        >
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="secondBreakfast">Second Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="snack">Snack</option>
+          <option value="dinner">Dinner</option>
+          <option value="dessert">Dessert</option>
+        </select>
 
         <label htmlFor="prep_time" className="py-4 text-2xl font-bold">
           Prep Time
@@ -178,16 +177,16 @@ export default function CreateBlogPage({ createResource }) {
           id="difficulty"
           name="difficulty"
           required >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
 
         <button
           type="submit"
-          className="py-4 mt-4 font-bold rounded p bg-violet-500"
+          className="py-4 mt-4 font-bold rounded p bg-orange-500"
         >
           Submit
         </button>
