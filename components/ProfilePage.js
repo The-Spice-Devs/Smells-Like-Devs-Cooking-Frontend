@@ -144,9 +144,6 @@ export default function Main() {
                     <p className="py-1"> Image {blog.recipe_images}</p>
                     <p className="py-1 italic">Ratings Coming Soon!</p>
                     <p className="py-1 italic">Dietary Tags Coming Soon!</p>
-                    <button id={blog.id} onClick={deleteBlogPost}>
-                      DELETE
-                    </button>
                   </div>
                 );
               })
