@@ -19,16 +19,19 @@ console.log(user)
           layout="fill"
           objectFit="cover"
           alt="Home Page Banner"
-          style={{opacity:'0.6', zIndex:'-1'}}
+          style={{opacity:'0.5', zIndex:'-1'}}
           priority
         />
       </div>
-      <div className="flex flex-wrap justify-center w-3/4">
+        <div className="items-center justify-center gap-4 p-8 mx-auto my-7 text-center rounded-lg text-md gap-x-8 w-4/5">
+          <p className="text-4xl" style={{color: 'rgb(100,0,0)'}}>Welcome! Below you&apos;ll find all of the recipe&apos;s that have been created by our users! <br></br>Click on the Title to Navigate to the Full Recipe</p>
+        </div>
+      <div className="flex flex-wrap justify-evenly mb-20">
         {resources.map((blog) => {
           return (
-            <div className='my-10 shadow-2xl w-80 shadow-amber-500 mx-7' style={{color: 'rgb(41,0,0)'}} key={blog.id}>
-              <Link href={`/${blog.id}`}><a className="flex justify-center pb-5 text-2xl font-bold underline w-250" >{blog.title}</a></Link>
-                <Image src={blog.recipe_images} alt={blog.title} width={320} height={320} />
+            <div className='shadow-2xl rounded-md pt-1 bg-stone-100 w-80 shadow-amber-900 mx-7 my-10 px-1' key={blog.id}>
+              <Link href={`/${blog.id}`}><a className="text-2xl w-250 flex justify-center text-amber-900 pb-5">{blog.title}</a></Link>
+                <Image src={blog.recipe_images} alt={blog.title} width={320} height={320} className="rounded-md"/>
             </div>
           )
         })}
