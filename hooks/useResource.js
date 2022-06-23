@@ -12,6 +12,15 @@ export default function useResource() {
 
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
 
+    // const { data,favData, error, mutate } = useSWR([apiUrl,apiFaveUrl, tokens, tokens], fetchResource,fetchResource);
+    
+    const { data: favData, error: favError } = useSWR([apiFaveUrl], fetchResource);
+    
+    console.log("DATA: ", data)
+
+    console.log("FAVDATA: ", favData)
+
+
     async function fetchResource(url) {
 
         // if (!tokens) {
@@ -47,7 +56,9 @@ export default function useResource() {
             handleError(error);
         }
     }
+    
 
+    
     async function createUser(info) {
 
         try {
@@ -95,6 +106,7 @@ export default function useResource() {
 
     return {
         resources: data,
+        favResources: favData,
         error,
         loading: tokens && !error && !data,
         createResource,
