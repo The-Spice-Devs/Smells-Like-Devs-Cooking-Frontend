@@ -29,8 +29,8 @@ export default function About() {
           priority
         />
       </div>
-      <div className="items-center justify-center gap-4 p-8 mx-auto my-7 text-center bg-orange-200 border-2 border-orange-400 rounded-lg text-md gap-x-8 w-4/5">
-        <h2 className="text-amber-900 text-5xl pb-10 font-bold"> Come and Meet the Devs!</h2>
+      <div className="items-center justify-center gap-4 p-8 mx-auto my-7 text-center rounded-lg text-md gap-x-8 w-4/5">
+        <h2 className="text-red-700 text-5xl pb-10 font-bold"> Come and Meet the Devs!</h2>
         <p className="leading-loose text-amber-900">We&apos;re a bunch of software developers with a huge grab bag mix of hobbies and strengths who have bonded over our two shared passions! App development, and cooking! With that in mind we present to you a website which allows you to register as a user and create your own recipes! If that&apos;s not your style, then you can browse the recipes that we and others have uploaded instead! We hope this website has brought you joy. Read on to learn more about the team!</p> 
       </div>
       <div className="grid items-center justify-center grid-cols-3 gap-4 p-8 mx-auto my-7 text-center bg-orange-200 border-2 border-orange-400 rounded-lg text-md gap-x-8 w-4/5 text-amber-900">

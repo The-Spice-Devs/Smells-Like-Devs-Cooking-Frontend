@@ -9,6 +9,7 @@ class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet"/>
         </Head>
         <body className="bg-yellow-50">
+          <Main/>
           <NextScript />
         </body>
       </Html>
