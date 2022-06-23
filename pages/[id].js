@@ -35,10 +35,12 @@ export default function BlogDetail() {
         <title>{resource.title}</title>
       </Head>
       <Header />
-      <h1 className="text-4xl py-4 font-bold border-2 border-violet-500 bg-violet-100 my-5 text-center">Recipe: {resource.title}</h1>
-      <div className="border-2 my-10 border-violet-500 bg-violet-200 px-10">
+      <div>
+      <h1 className="text-4xl py-4 font-bold border-2 border-orange-500 bg-orange-100 my-5 text-center">Recipe: {resource.title}</h1>
+      <div className="border-2 my-10 border-orange-500 bg-orange-200 px-10" style={{ position: 'relative'}}>
         <p className="text-medium text-center my-5 text-2xl"> {resource.recipe_intro}</p>
-        <Image src={resource.recipe_images} alt={resource.title} width={500} height={500} />
+        <Image src={resource.recipe_images} alt={resource.title} width={500} height={500} style={{ position: 'absolute', top: '30%', left: '15%'}}/>
+      </div>
         <div>
           <p className="italic">Prep Time: {resource.prep_time} : Cook Time: {resource.cook_time}</p>
           <p className="font-bold mt-5"> Recipe Ingredients</p> {resource.recipe_ingredients.map((amt, i) => (
@@ -49,7 +51,7 @@ export default function BlogDetail() {
             </ul>
           ))}
         </div>
-        <div className="border-1 border-violet-500">
+        <div className="border-1 border-orange-500">
           <p className="font-bold mt-5">Recipe Directions</p>
           {resource.recipe_directions.map((amt, i) => (
             <ol className="list-disc" key={i}>
@@ -59,7 +61,7 @@ export default function BlogDetail() {
             </ol>
           ))}
         </div>
-        <div className="border-2 border-violet-500  mt-5 text-center w-1/2">
+        <div className="border-2 border-orange-500  mt-5 text-center w-1/2">
           <h3 className="font-bold">Recipe Finer Details</h3>
           <p className="italic">Eat this as a nice {resource.meal_type}!</p>
           <p className="italic">Ratings Coming Soon!</p>
