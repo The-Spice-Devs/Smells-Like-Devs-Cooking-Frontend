@@ -3,6 +3,8 @@ import { useAuth } from '../contexts/auth'
 import Link from "next/link"
 import Header from './Header';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import banner from '../assets/profileBanner.jpeg'
 
 export default function Main({ username, logout }) {
 
@@ -20,6 +22,16 @@ export default function Main({ username, logout }) {
     <>
     <Header />
     {/* ternary: if no user, this page just returns a header, and goes to home route, because of logic on owner.js */}
+    <div className="pt-2" style={{ position: 'relative', width: '100vw', height: '25vw' }}>
+      <h1 className="text-8xl z-10 font-Rampart text-center" style={{ position: 'absolute', top: '30%',left:'15%', opacity: '1'}}>Smells Like Devs Cooking</h1>
+        <Image
+          src={banner}
+          layout="fill"
+          objectFit="cover"
+          alt="Yhe SPice Devs"
+          style={{opacity:'0.7'}}
+        />
+        </div>
 
      {user &&   <>     
      <h1>Welcome to Your Profile {user.username}</h1>
