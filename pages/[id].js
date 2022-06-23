@@ -46,7 +46,7 @@ export default function BlogDetail() {
         <div style={{color: 'rgb(41,0,0)'}} className="items-center justify-center gap-4 p-8 mx-auto text-center rounded-lg text-md gap-x-8 w-11/12">
       <h1 className="pt-10 pb-5 text-5xl border-b-2 border-orange-900 ">{resource.title}</h1>
       <div className="flex">
-        <p className="italic" style={{display: 'flex', justifyContent: 'space-between'}}><GiCook/>&nbsp;Created By: {resource.owner} </p>
+        <p className="italic" style={{display: 'flex', justifyContent: 'space-between'}}><GiCook/>&nbsp;Difficulty: {resource.difficulty}/5</p>
         <p className="italic" style={{display: 'flex', justifyContent: 'space-between'}}>&nbsp;&nbsp;&nbsp;<MdUpdate/>&nbsp;Date Submitted: {resource.created_at}</p>
       </div>
       </div> 
