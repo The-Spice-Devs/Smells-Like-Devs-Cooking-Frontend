@@ -141,6 +141,7 @@ export default function CreateBlogPage({ createResource }) {
           >
             <option value="" selected disabled hidden>Select an Option</option>
             <option value="breakfast">Breakfast</option>
+            <option value="secondBreakfast">Second Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="snack">Snack</option>
             <option value="dinner">Dinner</option>
