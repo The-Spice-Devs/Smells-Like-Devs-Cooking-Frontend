@@ -56,9 +56,9 @@ export default function CreateUserForm() {
   }
 
   return (
-    <form onSubmit={handleCreateUserFormSubmit} method="post" className="justify-center w-full h-full max-w-screen-xl px-5 py-3 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-violet-200 border-violet-500 my-5">
+    <form onSubmit={handleCreateUserFormSubmit} method="post" className="justify-center w-full h-full max-w-screen-xl px-5 py-3 ml-auto mr-auto text-center border-4 border-solid rounded-lg top-56 bg-orange-200 border-orange-500 my-20">
       <div className="flex flex-col p-4">
-        <h1 className="text-xl py-4 font-bold">New User? Sign Up Here!</h1>
+        <h1 className="text-4xl py-4 font-bold">Sign Up Here!</h1>
       <label htmlFor="username" className="py-4 font-bold text-2xl" pattern="[a-z]{0-9}" title="user name should only contain letters or numbers" >Username:</label>
       <input type="text" id="username" name="username" required></input>
 
@@ -81,7 +81,7 @@ export default function CreateUserForm() {
 
       <br></br>
 
-      <button type="submit" className="py-4 mt-4 rounded p bg-violet-500 font-bold">Submit</button>
+      <button type="submit" className="py-4 mt-4 rounded p bg-orange-500 font-bold">Submit</button>
     </div>
 </form >
   )
