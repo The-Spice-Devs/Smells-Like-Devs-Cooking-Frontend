@@ -20,13 +20,12 @@ export function AuthProvider(props) {
         login,
         logout,
     });
-
     async function login(username, password) {
-
+        
         const response = await axios.post(tokenUrl, { username, password });
-
+        
         const decodedAccess = jwt.decode(response.data.access);
-
+        
         const newState = {
             tokens: response.data,
             user: {
@@ -35,8 +34,9 @@ export function AuthProvider(props) {
                 id: decodedAccess.user_id
             },
         }
-
         setState(prevState => ({ ...prevState, ...newState }));
+        console.log("TOKEN: ", newState.tokens)
+        localStorage.setItem("jwt", newState.tokens.access)
     }
 
     function logout() {

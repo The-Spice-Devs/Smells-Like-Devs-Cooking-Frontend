@@ -63,6 +63,7 @@ export default function CreateBlogPage({ createResource }) {
 
     if (url.length > 5) {
       createResource(newBlog);
+      
     }
   }
 
