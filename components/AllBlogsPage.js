@@ -1,10 +1,5 @@
-
-
-export default function AllBlogsPage(){
-
-  return(
-
+export default function AllBlogsPage() {
+  return (
     <AllBlogsPage />
   )
-
 }

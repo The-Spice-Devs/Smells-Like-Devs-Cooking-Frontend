@@ -1,14 +1,18 @@
 import CreateABlog from '../components/CreateABlog';
 import useResource from '../hooks/useResource';
 import Header from '../components/Header';
+import Head from 'next/head';
 
-export default function Create() { 
+export default function Create() {
 	const { createResource } = useResource();
 
-	return ( 
+	return (
 		<>
-		<Header />
-		<CreateABlog createResource={createResource} />
+			<Head>
+				<title>Create a Blog!</title>
+			</Head>
+			<Header />
+			<CreateABlog createResource={createResource} />
 		</>
-		) 
-	}
+	)
+}
